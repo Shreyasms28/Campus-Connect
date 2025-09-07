@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>College Admin Portal</title>
+<link rel="stylesheet" href="/style.css">
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-inter">
+
+<header class="header bg-blue-900 text-white p-4 shadow-md sticky top-0 z-50">
+    <div class="container mx-auto flex justify-between items-center">
+        <div class="flex items-center space-x-4">
+            <h1 class="text-2xl font-bold">Admin Dashboard</h1>
+        </div>
+        <nav class="navbar">
+            <ul class="flex space-x-6">
+                <li><a href="#events" class="hover:text-yellow-400 transition-colors duration-300">Events</a></li>
+                <li><a href="#reports" class="hover:text-yellow-400 transition-colors duration-300">Reports</a></li>
+                <li><a href="/login" class="hover:text-red-400 transition-colors duration-300">Logout</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main class="main-content container mx-auto p-4 md:p-6">
+    <section id="events" class="section bg-white rounded-xl shadow-md p-6 mb-6">
+        <h2 class="text-2xl font-bold text-blue-900 mb-4">Create New Event</h2>
+        <form id="create-event-form" class="space-y-4">
+            <div class="form-group">
+                <label for="event-name" class="block text-sm font-medium text-gray-700">Event Name:</label>
+                <input type="text" id="event-name" name="event-name" class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required>
+            </div>
+            <div class="form-group">
+                <label for="event-date" class="block text-sm font-medium text-gray-700">Date:</label>
+                <input type="date" id="event-date" name="event-date" class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required>
+            </div>
+            <div class="form-group">
+                <label for="event-location" class="block text-sm font-medium text-gray-700">Location:</label>
+                <input type="text" id="event-location" name="event-location" class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required>
+            </div>
+            <div class="form-group">
+                <label for="event-description" class="block text-sm font-medium text-gray-700">Description:</label>
+                <textarea id="event-description" name="event-description" rows="4" class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"></textarea>
+            </div>
+            <button type="submit" class="w-full py-2 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors">
+                Create Event
+            </button>
+        </form>
+    </section>
+
+    <section id="reports" class="section bg-white rounded-xl shadow-md p-6">
+        <h2 class="text-2xl font-bold text-blue-900 mb-4">Reports Dashboard</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Event Popularity Report -->
+            <div class="report-item bg-gray-50 p-4 rounded-lg shadow-inner border-l-4 border-yellow-400">
+                <div id="popularity-report">
+                    <!-- Data will be dynamically loaded here -->
+                    <h3 class="text-lg font-semibold mb-4">Event Popularity Report</h3>
+                    <p class="text-gray-500">Loading...</p>
+                </div>
+            </div>
+            <!-- Student Participation Report -->
+            <div class="report-item bg-gray-50 p-4 rounded-lg shadow-inner border-l-4 border-green-400">
+                <div id="participation-report">
+                    <!-- Data will be dynamically loaded here -->
+                    <h3 class="text-lg font-semibold mb-4">Student Participation Report</h3>
+                    <p class="text-gray-500">Loading...</p>
+                </div>
+            </div>
+            <!-- Average Feedback Score -->
+            <div class="report-item bg-gray-50 p-4 rounded-lg shadow-inner border-l-4 border-red-400">
+                <div id="feedback-report">
+                    <!-- Data will be dynamically loaded here -->
+                    <h3 class="text-lg font-semibold mb-4">Average Feedback Score</h3>
+                    <p class="text-gray-500">Loading...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<div id="message-box" class="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center p-4 hidden z-50">
+    <div class="bg-white p-6 rounded-xl shadow-2xl max-w-sm w-full transform transition-all duration-300 scale-95 opacity-0">
+        <p id="message-text" class="text-center font-semibold text-gray-800 mb-4"></p>
+        <button onclick="hideMessage()" class="w-full bg-indigo-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-indigo-600 transition-colors duration-300">OK</button>
+    </div>
+</div>
+
+<footer class="footer bg-gray-800 text-gray-300 py-4 mt-6 text-center">
+    <p>&copy; 2025 College Event Management</p>
+</footer>
+<script src="/js/adminScript.js"></script>
+
+</body>
+</html>
